@@ -1,6 +1,7 @@
 
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { CustomLayout } from 'components';
+import React from 'react'
+import { Outlet, Navigate } from 'react-router-dom';
 
 interface PrivateRouteProps {
     isAuthenticated: boolean;
@@ -10,7 +11,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
     isAuthenticated,
 }) => {
     return (
-        isAuthenticated ? <Outlet/> : <Navigate to="/auth"/>
+        isAuthenticated ? <CustomLayout><Outlet/></CustomLayout> : <Navigate to="/auth"/>
     );
 };
 
