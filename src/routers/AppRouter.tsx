@@ -4,6 +4,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-d
 import { AuthRouter, OnlyPublicRoute, PrivateRoute } from "./index";
 import { TradesRouter } from "./TradesRouter";
 import { CollectionRouter } from "./CollectionRouter";
+import { ProfileRouter } from "./ProfileRouter";
 
 export const AppRouter = () => {
   const { isLogged } = useContext(AuthContext)
@@ -12,6 +13,7 @@ export const AppRouter = () => {
       <Routes>
         <Route element={<PrivateRoute isAuthenticated={isLogged} />}>
           <Route path="/trades/" element={<TradesRouter />} />
+          <Route path="/profile/" element={<ProfileRouter />} />
           <Route path="/collection/" element={<CollectionRouter />} />
         </Route>
         <Route element={<OnlyPublicRoute isAuthenticated={isLogged} />}>
