@@ -25,6 +25,9 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           <Menu.Item>
             <Link to='/trades'>Trades</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to='/collection'>My collection</Link>
+          </Menu.Item>
           <Menu.SubMenu key="profileMenu" title="Profile" style={{ marginLeft: 'auto' }}>
             <Menu.Item key="profile">
               <Link to='/profile'>Profile</Link>
