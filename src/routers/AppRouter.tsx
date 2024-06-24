@@ -14,7 +14,7 @@ export const AppRouter = () => {
         <Route element={<PrivateRoute isAuthenticated={isLogged} />}>
           <Route path="/trades/" element={<TradesRouter />} />
           <Route path="/profile/" element={<ProfileRouter />} />
-          <Route path="/collection/" element={<CollectionRouter />} />
+          <Route path="/collection/*" element={<CollectionRouter />} />
         </Route>
         <Route element={<OnlyPublicRoute isAuthenticated={isLogged} />}>
           <Route path="/auth/*" element={<AuthRouter />} />

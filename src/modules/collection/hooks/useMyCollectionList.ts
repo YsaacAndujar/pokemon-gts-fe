@@ -3,6 +3,7 @@ import { getMyCollection } from "helpers/collection"
 import { GenericPaginatedResponse } from "interfaces/generic"
 import { Collection, GetPokemonPaginated, Pokemon } from "interfaces/pokemon"
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const useMyCollectionList = () => {
   const [pokemonsListResponse, setPokemonsListResponse] = useState<GenericPaginatedResponse<Collection>>({
@@ -23,8 +24,10 @@ useEffect(()=>{
         setLoading(false)
     })
 },[filters])
+const navigate = useNavigate();
+
 const onClickPokemon = (pokemon: Pokemon) =>{
-    console.log(pokemon)
+    navigate(`/collection/${pokemon.collection!.id}`)
 }
 return { setFilters, filters, pokemonsListResponse, onClickPokemon }
 }

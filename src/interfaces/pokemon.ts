@@ -16,7 +16,7 @@ export interface Pokemon {
     name: string
     sprite: string
     types: Type[]
-    collection: Collection
+    collection?: Collection
 }
 
 export interface Collection {

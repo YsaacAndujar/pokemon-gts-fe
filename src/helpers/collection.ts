@@ -15,5 +15,13 @@ export const getMyCollection = (params?: GetPokemonPaginated) =>{
 }
 
 export const addPokemonToCollection = (pokemonId: number) =>{
-    return axios.post('collection/add-pokemon', {pokemonId})
+    return axios.post('collection', {pokemonId})
+}
+
+export const getCollectionDetails = (id: number) =>{
+    return axios.get<never, Collection>(`collection/${id}`)
+}
+
+export const deletePokemonFromCollection = (id: number) =>{
+    return axios.delete(`collection/${id}`)
 }
