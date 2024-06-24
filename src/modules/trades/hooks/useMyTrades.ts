@@ -1,12 +1,11 @@
 import { LoadingContext } from "context/loading"
-import { getMyCollection } from "helpers/collection"
+import { getMyTrades } from "helpers/trades"
 import { GenericPaginatedResponse } from "interfaces/generic"
-import { Collection, GetPaginatedWithPokemonFilter, Pokemon } from "interfaces/pokemon"
+import { GetPaginatedWithPokemonFilter, Pokemon, Trade } from "interfaces/pokemon"
 import { useContext, useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 
-export const useMyCollectionList = () => {
-    const [pokemonsListResponse, setPokemonsListResponse] = useState<GenericPaginatedResponse<Collection>>({
+export const useMyTrades = () => {
+    const [tradesResponse, setTradesResponse] = useState<GenericPaginatedResponse<Trade>>({
         result: [],
         totalEntities: 0
     })
@@ -16,18 +15,17 @@ export const useMyCollectionList = () => {
     })
     useEffect(() => {
         setLoading(true)
-        getMyCollection(filters)
+        getMyTrades(filters)
             .then((data) => {
-                setPokemonsListResponse(data)
+                setTradesResponse(data)
             })
             .finally(() => {
                 setLoading(false)
             })
     }, [filters])
-    const navigate = useNavigate();
 
     const onClickPokemon = (pokemon: Pokemon) => {
-        navigate(`/collection/${pokemon.collection!.id}`)
+        console.log(pokemon)
     }
-    return { setFilters, filters, pokemonsListResponse, onClickPokemon }
+    return { setFilters, filters, tradesResponse, onClickPokemon }
 }

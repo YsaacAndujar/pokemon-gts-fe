@@ -17,6 +17,13 @@ export interface Pokemon {
     sprite: string
     types: Type[]
     collection?: Collection
+    trade?: Trade
+}
+
+export interface Trade {
+    id: number
+    collection: Collection
+    pokemonsWanted: Pokemon[]
 }
 
 export interface Collection {
@@ -24,6 +31,6 @@ export interface Collection {
     pokemon: Pokemon
 }
 
-export interface GetPokemonPaginated extends GetPokemonFilter, GenericPaginated {
-    
+export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginated {
+
 }

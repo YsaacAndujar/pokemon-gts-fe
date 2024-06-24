@@ -1,3 +1,3 @@
-import { TradesListScreen } from "./pages/TradesListScreen";
+import { TradesScreen } from "./pages/TradesListScreen";
 
-export { TradesListScreen }
+export { TradesScreen }
