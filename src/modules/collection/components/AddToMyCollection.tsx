@@ -4,14 +4,14 @@ import { usePokemonList } from "../hooks";
 const { Title, } = Typography;
 
 export const AddToMyCollection = () => {
-  const { setFilters, pokemonsListResponse: { result, totalEntities } } = usePokemonList()
+  const { setFilters, pokemonsListResponse: { result, totalEntities }, onClickPokemon } = usePokemonList()
   return (
     <>
       <Title level={3}>Pokemons</Title>
       <PokemonFilter onSearch={(params) => {
         setFilters((prev) => ({ ...prev, ...params }))
       }} />
-      <PokemonList pokemons={result} />
+      <PokemonList pokemons={result} onClick={onClickPokemon}/>
       <Row justify="end">
         <Pagination
         onChange={(page, take) =>{

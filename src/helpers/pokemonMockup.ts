@@ -9,3 +9,7 @@ export const getTypes = () =>{
 export const getPokemons = (params?: GetPokemonPaginated) =>{
     return axios.get<never, GenericPaginatedResponse<Pokemon>>('pokemon-mockup/', {params})
 }
+
+export const addPokemonToCollection = (pokemonId: number) =>{
+    return axios.post('collection/add-pokemon', {pokemonId})
+}

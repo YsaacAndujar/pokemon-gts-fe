@@ -1,5 +1,6 @@
+import { message } from 'antd'
 import { LoadingContext } from "context/loading"
-import { getPokemons } from "helpers/pokemonMockup"
+import { addPokemonToCollection, getPokemons } from "helpers/pokemonMockup"
 import { GenericPaginatedResponse } from "interfaces/generic"
 import { GetPokemonPaginated, Pokemon } from "interfaces/pokemon"
 import { useContext, useEffect, useState } from "react"
@@ -23,7 +24,16 @@ export const usePokemonList = () => {
             setLoading(false)
         })
     },[filters])
-
-    return { setFilters, filters, pokemonsListResponse }
+    const onClickPokemon = (pokemon: Pokemon) =>{
+        setLoading(true)
+        addPokemonToCollection(pokemon.id)
+        .then(()=>{
+            message.success(`${pokemon.name} added`)
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
+    }
+    return { setFilters, filters, pokemonsListResponse, onClickPokemon }
   }
   
