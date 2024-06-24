@@ -15,6 +15,10 @@ export const AddToMyCollection = () => {
       <Row justify="end">
         <Pagination
         onChange={(page, take) =>{
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
           setFilters((prev)=> ({...prev, take, page}))
         }}
           defaultCurrent={1}

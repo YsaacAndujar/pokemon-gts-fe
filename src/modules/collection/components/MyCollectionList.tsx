@@ -19,6 +19,10 @@ export const MyCollectionList = () => {
       <Row justify="end">
         <Pagination
         onChange={(page, take) =>{
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
           setFilters((prev)=> ({...prev, take, page}))
         }}
         showSizeChanger
