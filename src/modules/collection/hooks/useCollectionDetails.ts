@@ -1,5 +1,6 @@
 import { LoadingContext } from "context/loading";
 import { deletePokemonFromCollection, getCollectionDetails } from "helpers/collection";
+import { addTrade } from "helpers/trades";
 import { Collection } from "interfaces/pokemon"
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
@@ -71,7 +72,15 @@ export const useCollectionDetails = (id: number | string) => {
     }
 
     const onMakeTrade = (pokemonsWanted: number[]) =>{
-        console.log(pokemonsWanted)
+        setLoading(true)
+        addTrade({collectionId:+id, pokemonsWanted})
+        .then(()=>{
+            showModal({type: 'success', title:"Trade created", text:"Trade created successfully"})
+            setPokemonSelectorOpened(false)
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
     }
   return { collection, onReturn, onDelete, handleMakeTrade, pokemonSelectorOpened, setPokemonSelectorOpened, onMakeTrade }
 }
