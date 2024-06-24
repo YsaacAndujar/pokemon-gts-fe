@@ -64,6 +64,14 @@ export const useCollectionDetails = (id: number | string) => {
             setLoading(false)
         })
     }
+    
+    const [pokemonSelectorOpened, setPokemonSelectorOpened] = useState(false)
+    const handleMakeTrade  = () =>{
+        setPokemonSelectorOpened(true)
+    }
 
-  return { collection, onReturn, onDelete }
+    const onMakeTrade = (pokemonsWanted: number[]) =>{
+        console.log(pokemonsWanted)
+    }
+  return { collection, onReturn, onDelete, handleMakeTrade, pokemonSelectorOpened, setPokemonSelectorOpened, onMakeTrade }
 }
