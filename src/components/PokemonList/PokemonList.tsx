@@ -6,7 +6,7 @@ export const PokemonList = ({pokemons, onClick}: PokemonListInterface) => {
     return (
         <Flex wrap gap="middle" justify='center'>
             {
-                pokemons.map((pokemon) => <PokemonCard key={pokemon.id} pokemon={pokemon} onClick={onClick}/>)
+                pokemons.map((pokemon, idx) => <PokemonCard key={idx} pokemon={pokemon} onClick={onClick}/>)
             }
         </Flex>
     )
