@@ -3,7 +3,7 @@ import { useDelayFunction } from "hooks"
 import { GetPaginatedWithPokemonFilter, Pokemon } from "interfaces/pokemon"
 import { useEffect, useState } from "react"
 
-export const usePokemonSelectorModal = () => {
+export const usePokemonSelectorModal = (open?: boolean) => {
     const [pokemonsList, setPokemonsList] = useState<Pokemon[]>([])
     const [loading, setLoading] = useState(false)
     const [filters, setFilters] = useState<GetPaginatedWithPokemonFilter>({
@@ -28,9 +28,12 @@ export const usePokemonSelectorModal = () => {
     }
     
     const onChange = (values:number[]) =>{
-        if(filters.name) setFilters((prev)=>({...prev, name:undefined}))
-        setFilters((prev)=>({...prev, name:undefined}))
         setPokemonsSelected(values)
+        setFilters((prev)=>({...prev, name:undefined}))
     }
-  return { pokemonsList, loading, onSearch, onChange, pokemonsSelected}
+    useEffect(()=>{
+        setPokemonsSelected([])
+        setFilters((prev)=>({...prev, name:undefined}))   
+      },[open])
+  return { pokemonsList, loading, onSearch, onChange, pokemonsSelected, setPokemonsSelected}
 }

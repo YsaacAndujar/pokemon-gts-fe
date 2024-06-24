@@ -4,8 +4,8 @@ import { usePokemonSelectorModal } from "./usePokemonSelectorModal";
 
 export const PokemonSelectorModal = ({ title, open, onOk, onCancel, okText }: PokemonSelectorModalProps) => {
 
-  const { pokemonsList, onSearch, onChange, loading, pokemonsSelected } = usePokemonSelectorModal()
-
+  const { pokemonsList, onSearch, onChange, loading, pokemonsSelected, } = usePokemonSelectorModal(open)
+  
   return (
     <Modal title={title} open={open} onOk={()=>{
       onOk?.(pokemonsSelected)
@@ -13,6 +13,7 @@ export const PokemonSelectorModal = ({ title, open, onOk, onCancel, okText }: Po
       <Select
       loading={loading}
         mode="multiple"
+        value={pokemonsSelected}
         style={{ width: '100%' }}
         placeholder="select the pokemon"
         onSearch={onSearch}
