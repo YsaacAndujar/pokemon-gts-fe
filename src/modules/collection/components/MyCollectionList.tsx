@@ -5,7 +5,6 @@ const { Title, } = Typography;
 
 export const MyCollectionList = () => {
   const { setFilters, pokemonsListResponse: { result, totalEntities }, onClickPokemon } = useMyCollectionList()
-  console.log(result)
   return (
     <>
       <Title level={3}>My colection</Title>
