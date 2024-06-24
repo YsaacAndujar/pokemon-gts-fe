@@ -7,7 +7,7 @@ const { Title, } = Typography;
 export const PokemonFilter = ({ onSearch, title }: PokemonFilterProps) => {
     const { types } = usePokemonFilter()
     return (
-        <>
+        <div>
             {
                 title && <Title level={5}>Pokemons</Title>
             }
@@ -77,6 +77,6 @@ export const PokemonFilter = ({ onSearch, title }: PokemonFilterProps) => {
                     </Col>
                 </Row>
             </Form>
-        </>
+        </div>
     )
 }

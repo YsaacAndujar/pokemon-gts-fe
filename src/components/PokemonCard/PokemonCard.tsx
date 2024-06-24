@@ -11,7 +11,7 @@ export const PokemonCard = ({pokemon, onClick}:PokemonCardProps) => {
     hoverable={!!onClick}
     onClick={()=>{onClick?.(pokemon.id)}}
     title={pokemon.name}
-    cover={<img alt="example" src={pokemon.sprite} style={{ padding: '10px' }}/>}
+    cover={<img alt={pokemon.name} src={pokemon.sprite} style={{ padding: '10px' }}/>}
     >
         <Flex wrap justify='center' >
         {
