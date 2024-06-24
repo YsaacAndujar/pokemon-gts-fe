@@ -21,7 +21,7 @@ export const PokemonCard = ({pokemon, onClick, showTrade}:PokemonCardProps) => {
     >
         <Flex wrap justify='center' >
         {
-            pokemon.types.map((type, idx)=><TypeBadge key={idx} type={type.name}/> )
+            pokemon.types?.map((type, idx)=><TypeBadge key={idx} type={type.name}/> )
         }
         </Flex>
         
