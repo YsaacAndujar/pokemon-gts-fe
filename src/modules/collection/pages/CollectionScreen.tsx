@@ -1,5 +1,5 @@
 import { Tabs } from "antd"
-import { MyCollectionList, PokemonList } from "../components"
+import { AddToMyCollection, MyCollectionList, } from "../components"
 
 export const CollectionScreen = () => {
   return (
@@ -14,7 +14,7 @@ export const CollectionScreen = () => {
       {
         label: 'Add to my collection',
         key: '2',
-        children: <PokemonList />,
+        children: <AddToMyCollection />,
       },
     ]}
   />
