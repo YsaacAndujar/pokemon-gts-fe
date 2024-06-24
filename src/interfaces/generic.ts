@@ -5,5 +5,5 @@ export interface GenericPaginated {
 
 export interface GenericPaginatedResponse<T> {
     result: T[]
-    total: number
+    totalEntities: number
 }

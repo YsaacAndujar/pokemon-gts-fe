@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react"
 export const usePokemonList = () => {
     const [pokemonsListResponse, setPokemonsListResponse] = useState<GenericPaginatedResponse<Pokemon>>({
         result:[],
-        total:0
+        totalEntities:0
     })
     const { setLoading } = useContext(LoadingContext)
     const [filters, setFilters] = useState<GetPokemonPaginated>({
