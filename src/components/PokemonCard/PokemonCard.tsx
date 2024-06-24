@@ -9,7 +9,7 @@ export const PokemonCard = ({pokemon, onClick}:PokemonCardProps) => {
         width:'250px',
     }}
     hoverable={!!onClick}
-    onClick={()=>{onClick?.(pokemon.id)}}
+    onClick={()=>{onClick?.(pokemon)}}
     title={pokemon.name}
     cover={<img alt={pokemon.name} src={pokemon.sprite} style={{ padding: '10px' }}/>}
     >
