@@ -21,6 +21,7 @@ export const AddToMyCollection = () => {
           total={totalEntities}
           style={{ marginTop: '20px' }}
           defaultPageSize={30}
+          showSizeChanger
           pageSizeOptions={[10, 20, 30, 100]} 
         />
       </Row>
