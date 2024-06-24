@@ -1,4 +1,4 @@
-import { getTypes } from "helpers/pokemonMockup"
+import { getTypes } from "helpers/collection"
 import { Type } from "interfaces/pokemon"
 import { useEffect, useState } from "react"
 

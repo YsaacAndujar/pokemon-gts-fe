@@ -1,6 +1,6 @@
 import axios from "axios"
 import { GenericPaginatedResponse } from "interfaces/generic"
-import { GetPokemonPaginated, Pokemon, Type } from "interfaces/pokemon"
+import { Collection, GetPokemonPaginated, Pokemon, Type } from "interfaces/pokemon"
 
 export const getTypes = () =>{
     return axios.get<never, Type[]>('pokemon-mockup/types')
@@ -8,6 +8,10 @@ export const getTypes = () =>{
 
 export const getPokemons = (params?: GetPokemonPaginated) =>{
     return axios.get<never, GenericPaginatedResponse<Pokemon>>('pokemon-mockup/', {params})
+}
+
+export const getMyCollection = (params?: GetPokemonPaginated) =>{
+    return axios.get<never, GenericPaginatedResponse<Collection>>('collection/', {params})
 }
 
 export const addPokemonToCollection = (pokemonId: number) =>{

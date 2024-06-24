@@ -1,6 +1,6 @@
 import { message } from 'antd'
 import { LoadingContext } from "context/loading"
-import { addPokemonToCollection, getPokemons } from "helpers/pokemonMockup"
+import { addPokemonToCollection, getPokemons } from "helpers/collection"
 import { GenericPaginatedResponse } from "interfaces/generic"
 import { GetPokemonPaginated, Pokemon } from "interfaces/pokemon"
 import { useContext, useEffect, useState } from "react"
