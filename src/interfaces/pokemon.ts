@@ -16,6 +16,12 @@ export interface Pokemon {
     name: string
     sprite: string
     types: Type[]
+    collection: Collection
+}
+
+export interface Collection {
+    id: number
+    pokemon: Pokemon
 }
 
 export interface GetPokemonPaginated extends GetPokemonFilter, GenericPaginated {
