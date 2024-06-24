@@ -5,15 +5,19 @@ const { Title, } = Typography;
 
 export const MyCollectionList = () => {
   const { setFilters, pokemonsListResponse: { result, totalEntities }, onClickPokemon } = useMyCollectionList()
+  console.log(result)
   return (
     <>
       <Title level={3}>My colection</Title>
       <PokemonFilter onSearch={(params) => {
         setFilters((prev) => ({ ...prev, ...params }))
       }} />
-      <PokemonList pokemons={result.map((collection) => ({
+      <PokemonList 
+      showTrade
+      pokemons={result.map((collection) => ({
         ...collection.pokemon,
-        collection
+        collection,
+        trade: collection.trade
         }))} 
         onClick={onClickPokemon}/>
       <Row justify="end">

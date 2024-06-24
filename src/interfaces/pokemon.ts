@@ -29,6 +29,7 @@ export interface Trade {
 export interface Collection {
     id: number
     pokemon: Pokemon
+    trade?: Trade
 }
 
 export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginated {
