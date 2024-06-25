@@ -25,6 +25,9 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           <Menu.Item key='trades'>
             <Link to='/trades'>Trades</Link>
           </Menu.Item>
+          <Menu.Item key='requests'>
+            <Link to='/requests'>Requests</Link>
+          </Menu.Item>
           <Menu.Item key='collection'>
             <Link to='/collection'>My collection</Link>
           </Menu.Item>
