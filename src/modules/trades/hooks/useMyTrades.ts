@@ -3,6 +3,7 @@ import { getMyTrades } from "helpers/trades"
 import { GenericPaginatedResponse } from "interfaces/generic"
 import { GetPaginatedWithPokemonFilter, Pokemon, Trade } from "interfaces/pokemon"
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const useMyTrades = () => {
     const [tradesResponse, setTradesResponse] = useState<GenericPaginatedResponse<Trade>>({
@@ -23,9 +24,10 @@ export const useMyTrades = () => {
                 setLoading(false)
             })
     }, [filters])
-
+    const navigate = useNavigate();
+    
     const onClickPokemon = (pokemon: Pokemon) => {
-        console.log(pokemon)
+        navigate(`/trades/my-trades/${pokemon.trade?.id}`)
     }
     return { setFilters, filters, tradesResponse, onClickPokemon }
 }

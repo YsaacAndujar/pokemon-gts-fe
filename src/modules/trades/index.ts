@@ -1,3 +1,4 @@
+import { MyTradeDetailsScreen } from "./pages/MyTradeDetailsScreen";
 import { TradesScreen } from "./pages/TradesListScreen";
 
-export { TradesScreen }
+export { MyTradeDetailsScreen, TradesScreen };

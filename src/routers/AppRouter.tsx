@@ -12,7 +12,7 @@ export const AppRouter = () => {
     <Router>
       <Routes>
         <Route element={<PrivateRoute isAuthenticated={isLogged} />}>
-          <Route path="/trades/" element={<TradesRouter />} />
+          <Route path="/trades/*" element={<TradesRouter />} />
           <Route path="/profile/" element={<ProfileRouter />} />
           <Route path="/collection/*" element={<CollectionRouter />} />
         </Route>
