@@ -19,7 +19,7 @@ export const PokemonDetails = ({pokemon, showTrade}:{pokemon:Pokemon, showTrade?
       label: 'Types',
       children: (
         <Flex wrap justify='center'>
-          {pokemon.types.map((type, idx) => (
+          {pokemon.types?.map((type, idx) => (
             <TypeBadge key={idx} type={type.name} />
           ))}
         </Flex>
