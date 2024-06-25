@@ -9,3 +9,15 @@ export const getMyTrades = (params?: GetPaginatedWithPokemonFilter) => {
 export const addTrade = (params: {collectionId: number, pokemonsWanted:number[]}) => {
     return axios.post('trades/add-trade', params)
 }
+
+export const getTradeDetails = (id: number) => {
+    return axios.get<never, Trade>(`trades/${id}`)
+}
+
+export const deleteTrade = (id: number) => {
+    return axios.delete(`trades/my-trades/${id}`)
+}
+
+export const patchTrade = (id: number, pokemonsWanted:number[]) => {
+    return axios.patch(`trades/my-trades/${id}`, {pokemonsWanted})
+}

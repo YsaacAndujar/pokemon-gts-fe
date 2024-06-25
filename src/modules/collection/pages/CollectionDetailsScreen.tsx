@@ -1,7 +1,7 @@
 import { Button, Col, Row, Typography } from "antd";
 import { PokemonDetails, PokemonSelectorModal } from "components";
 import { useParams } from "react-router-dom";
-import { useCollectionDetails } from "../hooks/useCollectionDetails";
+import { useCollectionDetails } from "../hooks";
 const { Title, } = Typography;
 
 export const CollectionDetailsScreen = () => {
