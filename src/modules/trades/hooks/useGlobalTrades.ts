@@ -49,7 +49,7 @@ useEffect(() => {
 const navigate = useNavigate();
 
 const onClickPokemon = (pokemon: Pokemon) => {
-    console.log(pokemon)
+  navigate(`/trades/global-trades/${pokemon.trade?.id}`)
 }
 return { setFilters, filters, tradesResponse, onClickPokemon, filtersItems }
 }
