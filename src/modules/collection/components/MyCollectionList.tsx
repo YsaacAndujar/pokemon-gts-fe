@@ -12,11 +12,12 @@ export const MyCollectionList = () => {
         setFilters((prev) => ({ ...prev, ...params }))
       }} />
       <PokemonList 
-      showTrade
+      showState
       pokemons={result.map((collection) => ({
         ...collection.pokemon,
         collection,
-        trade: collection.trade
+        trade: collection.trade,
+        tradeRequest: collection.tradeRequest
         }))} 
         onClick={onClickPokemon}/>
       <Row justify="end">

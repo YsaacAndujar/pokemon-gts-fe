@@ -1,8 +1,9 @@
-import { Descriptions, Flex } from "antd"
-import { TypeBadge } from "components/TypeBadge/TypeBadge"
-import { Pokemon } from "interfaces/pokemon"
+import { Descriptions, Flex } from "antd";
+import { TypeBadge } from "components/TypeBadge/TypeBadge";
+import { useGetPokemonState } from "hooks";
+import { Pokemon } from "interfaces/pokemon";
 
-export const PokemonDetails = ({pokemon, showTrade}:{pokemon:Pokemon, showTrade?: boolean}) => {
+export const PokemonDetails = ({pokemon, showState}:{pokemon:Pokemon, showState?: boolean}) => {
   const items = [
     {
       key: 1,
@@ -26,12 +27,12 @@ export const PokemonDetails = ({pokemon, showTrade}:{pokemon:Pokemon, showTrade?
       ),
     },
   ];
-
-  if (showTrade) {
+  const { state } = useGetPokemonState(pokemon)
+  if (showState) {
     items.push({
       key: 7,
-      label: 'In trade?',
-      children: !!pokemon.trade? 'Yes' : 'No',
+      label: 'State',
+      children: state? state : 'None',
     });
   }
   return (

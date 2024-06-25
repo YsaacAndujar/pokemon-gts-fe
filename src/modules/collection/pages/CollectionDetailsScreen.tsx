@@ -20,7 +20,7 @@ export const CollectionDetailsScreen = () => {
             onOk={onMakeTrade}
             />
             <Title level={2}>Collection details</Title>
-            <PokemonDetails showTrade pokemon={{...collection.pokemon, trade: collection.trade}} />
+            <PokemonDetails showState pokemon={{...collection.pokemon, trade: collection.trade, tradeRequest: collection.tradeRequest}} />
 
             <Row justify="end" gutter={16} >
                 <Col>
@@ -34,7 +34,7 @@ export const CollectionDetailsScreen = () => {
                     </Button>
                 </Col>
                 <Col>
-                    <Button size="large" type="primary" onClick={handleMakeTrade} disabled={!!collection.trade}>
+                    <Button size="large" type="primary" onClick={handleMakeTrade} disabled={!!collection.trade || !!collection.tradeRequest}>
                         Make a trade
                     </Button>
                 </Col>
