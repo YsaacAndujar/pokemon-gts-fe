@@ -46,5 +46,9 @@ useEffect(() => {
         })
 }, [filters])
 
-return { setFilters, filters, requestsResponse, filtersItems }
+const handleDeleteRequest = () =>{
+
+}
+
+return { setFilters, filters, requestsResponse, filtersItems, handleDeleteRequest }
 }

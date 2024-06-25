@@ -1,15 +1,23 @@
-import { Collapse, Pagination, Row, Typography } from "antd";
+import { Collapse, Flex, Pagination, Row, Typography } from "antd";
 import { useRequestIMadeList } from "../hooks";
-import { RequestCardList } from "components";
+import { RequestCard, RequestCardList } from "components";
 const { Title } = Typography
 
 export const RequestsIMadeList = () => {
-    const { filtersItems, setFilters, requestsResponse: { result, totalEntities }, } = useRequestIMadeList()
+    const { filtersItems, setFilters, requestsResponse: { result, totalEntities }, handleDeleteRequest } = useRequestIMadeList()
     return (
         <div>
             <Title level={2}>Active requests that I made</Title>
             <Collapse ghost items={filtersItems} />
-            <RequestCardList tradeRequests={result} />
+            <RequestCardList tradeRequests={result} >
+                <Flex justify='center'>
+                    <RequestCard.Button 
+                    buttonProps={{danger:true}} onClick={handleDeleteRequest}>
+                        Delete request
+                    </RequestCard.Button>
+
+                </Flex>
+            </RequestCardList>
             <Row justify="end">
                 <Pagination
                     onChange={(page, take) => {
