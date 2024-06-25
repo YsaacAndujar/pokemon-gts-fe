@@ -2,11 +2,11 @@ import { Flex } from "antd"
 import { RequestCardListProps } from "./RequestCardListProps"
 import { RequestCard } from "components"
 
-export const RequestCardList = ({ tradeRequests, onClick }: RequestCardListProps) => {
+export const RequestCardList = ({ tradeRequests, }: RequestCardListProps) => {
     return (
         <Flex wrap gap="middle" justify='center' style={{ marginBottom: '20px' }}>
             {
-                tradeRequests.map((request, idx) => <RequestCard key={idx} tradeRequest={request} onClick={onClick} />)
+                tradeRequests.map((request, idx) => <RequestCard key={idx} tradeRequest={request} />)
             }
         </Flex>
     )
