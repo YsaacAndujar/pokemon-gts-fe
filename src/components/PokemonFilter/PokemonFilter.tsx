@@ -8,15 +8,14 @@ export const PokemonFilter = ({ onSearch, title }: PokemonFilterProps) => {
     const { types } = usePokemonFilter()
     return (
         <div>
-            {
-                title && <Title level={5}>Pokemons</Title>
-            }
-
             <Form
                 initialValues={{} as GetPokemonFilter}
-                style={{ padding: '20px' }}
+                style={{ padding: '0 20px' }}
                 onFinish={onSearch}
-            >
+                >
+                {
+                    title && <Title level={5} style={{marginTop:'5px'}}>{title}</Title>
+                }
                 <Row gutter={16}>
                     <Col xs={24} sm={12} md={8}>
                         <Form.Item
