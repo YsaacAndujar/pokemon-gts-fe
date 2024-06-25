@@ -6,14 +6,14 @@ const { Title, } = Typography;
 
 export const TradeDetails = ({ trade }: { trade: Trade }) => {
   return (
-    <div>
+    <div style={{marginBottom: '20px'}}>
       <PokemonDetails pokemon={trade.collection.pokemon} />
       {
         trade.pokemonsWanted.length > 0 && <>
           <Title level={3}>Pokemons wanted</Title>
           <Flex wrap gap='20px'>
             {
-              trade.pokemonsWanted.map((pokemon) => <PokemonCard pokemon={pokemon} width="200px" />)
+              trade.pokemonsWanted.map((pokemon, idx) => <PokemonCard key={idx} pokemon={pokemon} width="200px" />)
             }
           </Flex>
         </>
