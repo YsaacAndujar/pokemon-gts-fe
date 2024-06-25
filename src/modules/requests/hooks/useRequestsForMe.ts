@@ -1,14 +1,14 @@
 import { CollapseProps } from "antd";
 import { PokemonFilter } from "components";
 import { LoadingContext } from "context/loading";
-import { deleteRequest, getRequestsIMade } from "helpers/trades";
+import { declineRequest, getRequestsForMe } from "helpers/trades";
 import { GenericPaginatedResponse } from "interfaces/generic";
 import { GetPaginatedGlobalTradesFilter, TradeRequest } from "interfaces/pokemon";
 import { useCallback, useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { showModal } from "utils/modal";
 
-export const useRequestIMadeList = () => {
+export const useRequestsForMe = () => {
     const [requestsResponse, setRequetsResponse] = useState<GenericPaginatedResponse<TradeRequest>>({
       result: [],
       totalEntities: 0
@@ -19,15 +19,18 @@ export const useRequestIMadeList = () => {
           label: 'Pokemon I offered filter',
           children: PokemonFilter({
             onSearch:((params) =>{
+                console.log(params)
                 setFilters((prev):GetPaginatedGlobalTradesFilter => ({ ...prev, myPokemon: params }))
             })
           })
         },
         {
           key: '2',
-          label: 'Pokemon they have filter',
+          label: 'Pokemon they offered filter',
           children: PokemonFilter({
             onSearch:((params) =>{
+                console.log(params)
+
                 setFilters((prev):GetPaginatedGlobalTradesFilter => ({ ...prev, theirPokemon: params }))
             })
           })
@@ -37,9 +40,9 @@ const { setLoading } = useContext(LoadingContext)
 const [filters, setFilters] = useState<GetPaginatedGlobalTradesFilter>({
     take: 30
 })
-const loadRequestIMade = useCallback(() =>{
+const loadRequestForMe = useCallback(() =>{
   setLoading(true)
-  getRequestsIMade(filters)
+  getRequestsForMe(filters)
       .then((data) => {
         setRequetsResponse(data)
       })
@@ -48,13 +51,14 @@ const loadRequestIMade = useCallback(() =>{
       })
 },[filters])
 useEffect(() => {
-  loadRequestIMade()
-}, [loadRequestIMade])
+    loadRequestForMe()
+}, [loadRequestForMe])
 
 
-const handleDeleteRequest = (request:TradeRequest) =>{
+const handleDeclineRequest = (request:TradeRequest) =>{
   Swal.fire({
-    title: "Are you sure you want to delete this request that you made?",
+    title: "Are you sure you want to decline this offer?",
+            text: "You won't be able to revert this!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -62,16 +66,16 @@ const handleDeleteRequest = (request:TradeRequest) =>{
     confirmButtonText: "Yes, delete it!"
   }).then((result) => {
     if (result.isConfirmed) {
-      onDeleteRequest(request)
+      onDeclineRequest(request)
     }
   });
 }
-const onDeleteRequest = (request:TradeRequest) =>{
+const onDeclineRequest = (request:TradeRequest) =>{
   setLoading(true)
-  deleteRequest(request.id)
+  declineRequest(request.id)
   .then(()=>{
-      showModal({title: 'Request deleted', text:'Request deleted successfully', type:'success',
-        didClose:() =>loadRequestIMade()
+      showModal({title: 'Request declined', text:'Request declined successfully', type:'success',
+        didClose:()=> loadRequestForMe()
       })
   })
   .finally(()=>{
@@ -79,5 +83,5 @@ const onDeleteRequest = (request:TradeRequest) =>{
   })
 }
 
-return { setFilters, filters, requestsResponse, filtersItems, handleDeleteRequest }
+return { setFilters, filters, requestsResponse, filtersItems, handleDeclineRequest }
 }

@@ -1,3 +1,4 @@
 import { useRequestIMadeList } from "./useRequestIMadeList";
+import { useRequestsForMe } from "./useRequestsForMe";
 
-export { useRequestIMadeList, }
+export { useRequestIMadeList, useRequestsForMe }

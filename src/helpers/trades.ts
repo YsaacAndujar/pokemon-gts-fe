@@ -14,6 +14,10 @@ export const getRequestsIMade = (params?: GetPaginatedWithPokemonFilter) => {
     return axios.post<never, GenericPaginatedResponse<TradeRequest>>('trades/get-requests-i-made', params)
 }
 
+export const getRequestsForMe = (params?: GetPaginatedWithPokemonFilter) => {
+    return axios.post<never, GenericPaginatedResponse<TradeRequest>>('trades/get-requests-for-me', params)
+}
+
 export const addTrade = (params: {collectionId: number, pokemonsWanted:number[]}) => {
     return axios.post('trades/add-trade', params)
 }
@@ -32,6 +36,10 @@ export const deleteTrade = (id: number) => {
 
 export const deleteRequest = (id: number) => {
     return axios.delete(`trades/my-requests/${id}`)
+}
+
+export const declineRequest = (id: number) => {
+    return axios.delete(`trades/decline-request/${id}`)
 }
 
 export const patchTrade = (id: number, pokemonsWanted:number[]) => {
