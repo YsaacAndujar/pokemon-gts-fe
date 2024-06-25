@@ -18,7 +18,7 @@ export interface Pokemon {
     types?: Type[]
     collection?: Collection
     trade?: Trade
-    tradeRequest?: any
+    tradeRequest?: TradeRequest
 }
 
 export interface Trade {
@@ -31,9 +31,14 @@ export interface Collection {
     id: number
     pokemon: Pokemon
     trade?: Trade
-    tradeRequest?: any
+    tradeRequest?: TradeRequest
 }
 
+export interface TradeRequest {
+    id: number,
+    trade: Trade,
+    collection: Collection
+}
 export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginated {
     
 }
