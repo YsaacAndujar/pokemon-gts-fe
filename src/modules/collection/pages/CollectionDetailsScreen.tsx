@@ -12,6 +12,7 @@ export const CollectionDetailsScreen = () => {
             <PokemonSelectorModal 
             open={pokemonSelectorOpened} 
             title="Select what pokemons you want"
+            multiple
             okText="Make trade"
             onCancel={()=>{
                 setPokemonSelectorOpened(false)

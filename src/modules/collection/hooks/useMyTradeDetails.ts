@@ -72,7 +72,11 @@ export const useMyTradeDetails = (id: number | string) => {
         setPokemonSelectorOpened(true)
     }
 
-    const onEdit = (pokemonsWanted: number[]) => {
+    const onEdit = (pokemonsWanted: number[] | number) => {
+        if (!Array.isArray(pokemonsWanted)) {
+            console.error('pokemons should be an array');
+            return
+        }
         setLoading(true)
         patchTrade(id as number, pokemonsWanted)
             .then(() => {

@@ -14,6 +14,10 @@ export const getMyCollection = (params?: GetPaginatedWithPokemonFilter) => {
     return axios.get<never, GenericPaginatedResponse<Collection>>('collection/', { params })
 }
 
+export const getMyCollectionAvailable = (params?: GetPaginatedWithPokemonFilter) => {
+    return axios.get<never, GenericPaginatedResponse<Collection>>('collection/available', { params })
+}
+
 export const addPokemonToCollection = (pokemonId: number) => {
     return axios.post('collection', { pokemonId })
 }

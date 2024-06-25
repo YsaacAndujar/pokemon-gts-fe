@@ -71,7 +71,11 @@ export const useCollectionDetails = (id: number | string) => {
         setPokemonSelectorOpened(true)
     }
 
-    const onMakeTrade = (pokemonsWanted: number[]) =>{
+    const onMakeTrade = (pokemonsWanted: number[] | number) =>{
+        if (!Array.isArray(pokemonsWanted)) {
+            console.error("pokemons should be an array");
+            return
+        }
         setLoading(true)
         addTrade({collectionId:+id, pokemonsWanted})
         .then(()=>{

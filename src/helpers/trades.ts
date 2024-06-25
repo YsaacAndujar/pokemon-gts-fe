@@ -14,6 +14,10 @@ export const addTrade = (params: {collectionId: number, pokemonsWanted:number[]}
     return axios.post('trades/add-trade', params)
 }
 
+export const makeRequest = (params: {tradeId: number, collectionId:number}) => {
+    return axios.post('trades/make-request', params)
+}
+
 export const getTradeDetails = (id: number) => {
     return axios.get<never, Trade>(`trades/${id}`)
 }
