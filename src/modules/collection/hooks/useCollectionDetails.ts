@@ -75,7 +75,7 @@ export const useCollectionDetails = (id: number | string) => {
         setLoading(true)
         addTrade({collectionId:+id, pokemonsWanted})
         .then(()=>{
-            showModal({type: 'success', title:"Trade created", text:"Trade created successfully"})
+            showModal({type: 'success', title:"Trade created", text:"Trade created successfully", didClose: () => window.location.reload() })
             setPokemonSelectorOpened(false)
         })
         .finally(()=>{
