@@ -30,6 +30,10 @@ export const deleteTrade = (id: number) => {
     return axios.delete(`trades/my-trades/${id}`)
 }
 
+export const deleteRequest = (id: number) => {
+    return axios.delete(`trades/my-requests/${id}`)
+}
+
 export const patchTrade = (id: number, pokemonsWanted:number[]) => {
     return axios.patch(`trades/my-trades/${id}`, {pokemonsWanted})
 }
