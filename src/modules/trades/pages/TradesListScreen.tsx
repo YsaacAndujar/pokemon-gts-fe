@@ -1,10 +1,9 @@
-import { Tabs } from "antd"
-import { GlobalTrades, MyTrades } from "../components"
-import { useLocation, useNavigate } from "react-router-dom";
+import { Tabs } from "antd";
+import { useLocation } from "react-router-dom";
+import { GlobalTrades, MyTrades } from "../components";
 
 export const TradesScreen = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const defaultActiveKey = searchParams.get('tab') || '1';
   return (
