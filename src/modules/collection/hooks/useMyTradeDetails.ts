@@ -38,7 +38,7 @@ export const useMyTradeDetails = (id: number | string) => {
     }, [id])
 
     const onReturn = () => {
-        navigate('/trades')
+        navigate('/trades?tab=2')
     }
 
     const onDelete = () => {
