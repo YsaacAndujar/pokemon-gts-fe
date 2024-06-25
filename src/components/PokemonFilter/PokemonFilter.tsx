@@ -50,6 +50,7 @@ export const PokemonFilter = ({ onSearch, title }: PokemonFilterProps) => {
                             <Select
                                 allowClear
                                 showSearch
+                                optionFilterProp='label'
                                 options={types.map(type => ({
                                     label: type.name,
                                     value: type.id,
