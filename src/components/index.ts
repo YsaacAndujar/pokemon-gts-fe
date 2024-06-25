@@ -4,6 +4,7 @@ import { PokemonDetails } from './PokemonDetails/PokemonDetails';
 import { PokemonFilter } from './PokemonFilter/PokemonFilter';
 import { PokemonList } from './PokemonList/PokemonList';
 import { PokemonSelectorModal } from './PokemonSelectorModal/PokemonSelectorModal';
+import { TradeDetails } from './TradeDetails/TradeDetails';
 import { TypeBadge } from './TypeBadge/TypeBadge';
 
-export { CustomLayout, PokemonFilter, PokemonList, TypeBadge, PokemonCard, PokemonDetails, PokemonSelectorModal }
+export { CustomLayout, PokemonFilter, PokemonList, TypeBadge, PokemonCard, PokemonDetails, PokemonSelectorModal, TradeDetails }
