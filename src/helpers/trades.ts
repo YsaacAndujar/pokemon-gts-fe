@@ -6,6 +6,10 @@ export const getMyTrades = (params?: GetPaginatedWithPokemonFilter) => {
     return axios.get<never, GenericPaginatedResponse<Trade>>('trades/my-trades', { params })
 }
 
+export const getGlobalTrades = (params?: GetPaginatedWithPokemonFilter) => {
+    return axios.post<never, GenericPaginatedResponse<Trade>>('trades/get-all-trades', params)
+}
+
 export const addTrade = (params: {collectionId: number, pokemonsWanted:number[]}) => {
     return axios.post('trades/add-trade', params)
 }

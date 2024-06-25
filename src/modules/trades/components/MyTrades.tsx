@@ -1,6 +1,6 @@
 import { Pagination, Row, Typography } from "antd";
 import { PokemonFilter, PokemonList } from "components";
-import { useMyTrades } from "../hooks/useMyTrades";
+import { useMyTrades } from "../hooks";
 const { Title, } = Typography;
 
 export const MyTrades = () => {

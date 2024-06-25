@@ -33,5 +33,10 @@ export interface Collection {
 }
 
 export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginated {
+    
+}
 
+export interface GetPaginatedGlobalTradesFilter extends GenericPaginated {
+    myPokemon?: GetPokemonFilter
+    theirPokemon?: GetPokemonFilter
 }
