@@ -43,7 +43,7 @@ export interface TradeRequest {
 export interface History {
     id: number;
     myPokemon: Pokemon;
-    isMyRequest: boolean
+    hisPokemon: Pokemon;
 }
 export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginatedFilter {
 
