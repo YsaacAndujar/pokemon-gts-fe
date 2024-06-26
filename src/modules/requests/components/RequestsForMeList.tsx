@@ -4,13 +4,13 @@ import { useRequestsForMe } from "../hooks";
 const { Title } = Typography
 
 export const RequestsForMeList = () => {
-  const { filtersItems, setFilters, requestsResponse: { result, totalEntities }, handleDeclineRequest } = useRequestsForMe()
+  const { filtersItems, setFilters, requestsResponse: { result, totalEntities }, handleDeclineRequest, handleAcceptRequest } = useRequestsForMe()
     return (
         <div>
             <Title level={2}>Requests for me</Title>
             <Collapse ghost items={filtersItems} />
             <RequestCardList tradeRequests={result} >
-                <Flex justify='center'>
+                <Flex justify='space-around' wrap gap='10px'>
                     <RequestCard.Button
                     buttonProps={{
                       danger:true
@@ -18,6 +18,14 @@ export const RequestsForMeList = () => {
                     onClick={handleDeclineRequest}
                     >
                         Decline request
+                    </RequestCard.Button>
+                    <RequestCard.Button
+                    buttonProps={{
+                      type:'primary'
+                    }}
+                    onClick={handleAcceptRequest}
+                    >
+                        Accept request
                     </RequestCard.Button>
 
                 </Flex>

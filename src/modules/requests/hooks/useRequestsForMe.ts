@@ -1,7 +1,7 @@
 import { CollapseProps } from "antd";
 import { PokemonFilter } from "components";
 import { LoadingContext } from "context/loading";
-import { declineRequest, getRequestsForMe } from "helpers/trades";
+import { acceptRequest, declineRequest, getRequestsForMe } from "helpers/trades";
 import { GenericPaginatedResponse } from "interfaces/generic";
 import { GetPaginatedGlobalTradesFilter, TradeRequest } from "interfaces/pokemon";
 import { useCallback, useContext, useEffect, useState } from "react";
@@ -82,6 +82,33 @@ const onDeclineRequest = (request:TradeRequest) =>{
       setLoading(false)
   })
 }
+const handleAcceptRequest = (request:TradeRequest) =>{
+  Swal.fire({
+    title: "Are you sure you want to accept this offer?",
+            text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, accept it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      onAcceptRequest(request)
+    }
+  });
+}
+const onAcceptRequest = (request:TradeRequest) =>{
+  setLoading(true)
+  acceptRequest(request.id)
+  .then(()=>{
+      showModal({title: 'Request accepted', text:'Request accepted successfully', type:'success',
+        didClose:()=> loadRequestForMe()
+      })
+  })
+  .finally(()=>{
+      setLoading(false)
+  })
+}
 
-return { setFilters, filters, requestsResponse, filtersItems, handleDeclineRequest }
+return { setFilters, filters, requestsResponse, filtersItems, handleDeclineRequest, handleAcceptRequest }
 }

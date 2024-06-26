@@ -42,6 +42,10 @@ export const declineRequest = (id: number) => {
     return axios.delete(`trades/decline-request/${id}`)
 }
 
+export const acceptRequest = (id: number) => {
+    return axios.post(`trades/accept-trade-request/${id}`)
+}
+
 export const patchTrade = (id: number, pokemonsWanted:number[]) => {
     return axios.patch(`trades/my-trades/${id}`, {pokemonsWanted})
 }
