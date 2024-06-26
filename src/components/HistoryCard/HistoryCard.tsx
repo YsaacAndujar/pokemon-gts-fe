@@ -17,7 +17,7 @@ export const HistoryCard = ({history}:HistoryCardProps) => {
       }
     >
         <Text>
-        Cambiaste tu {history.myPokemon.name} por {history.hisPokemon.name}
+        You changed your {history.myPokemon.name} for {history.hisPokemon.name}
 
         </Text>
     </Card>
