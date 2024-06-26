@@ -8,5 +8,7 @@ import { PokemonList } from './PokemonList/PokemonList';
 import { PokemonSelectorModal } from './PokemonSelectorModal/PokemonSelectorModal';
 import { TradeDetails } from './TradeDetails/TradeDetails';
 import { TypeBadge } from './TypeBadge/TypeBadge';
+import { HistoryCard } from './HistoryCard/HistoryCard';
+import { HistoryList } from './HistoryList/HistoryList';
 
-export { CustomLayout, PokemonFilter, PokemonList, TypeBadge, PokemonCard, PokemonDetails, PokemonSelectorModal, TradeDetails, RequestCard, RequestCardList }
+export { CustomLayout, PokemonFilter, PokemonList, TypeBadge, PokemonCard, PokemonDetails, PokemonSelectorModal, TradeDetails, RequestCard, RequestCardList, HistoryCard, HistoryList }

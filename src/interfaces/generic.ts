@@ -1,4 +1,4 @@
-export interface GenericPaginated {
+export interface GenericPaginatedFilter {
     page?: number,
     take?: number
 }

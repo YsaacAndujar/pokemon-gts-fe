@@ -1,4 +1,4 @@
-import { GenericPaginated } from "./generic";
+import { GenericPaginatedFilter } from "./generic";
 
 export interface GetPokemonFilter {
     name?: string;
@@ -39,11 +39,17 @@ export interface TradeRequest {
     trade: Trade,
     collection: Collection
 }
-export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginated {
-    
+
+export interface History {
+    id: number;
+    myPokemon: Pokemon;
+    isMyRequest: boolean
+}
+export interface GetPaginatedWithPokemonFilter extends GetPokemonFilter, GenericPaginatedFilter {
+
 }
 
-export interface GetPaginatedGlobalTradesFilter extends GenericPaginated {
+export interface GetPaginatedGlobalTradesFilter extends GenericPaginatedFilter {
     myPokemon?: GetPokemonFilter
     theirPokemon?: GetPokemonFilter
 }
