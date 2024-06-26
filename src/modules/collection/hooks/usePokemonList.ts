@@ -1,4 +1,4 @@
-import { message } from 'antd'
+import { notification } from 'antd'
 import { LoadingContext } from "context/loading"
 import { addPokemonToCollection, getPokemons } from "helpers/collection"
 import { GenericPaginatedResponse } from "interfaces/generic"
@@ -28,7 +28,9 @@ export const usePokemonList = () => {
         setLoading(true)
         addPokemonToCollection(pokemon.id)
             .then(() => {
-                message.success(`${pokemon.name} added`)
+                notification.success({
+                    message: `${pokemon.name} added`,
+                  });
             })
             .finally(() => {
                 setLoading(false)
