@@ -6,6 +6,7 @@ import { TradesRouter } from "./TradesRouter";
 import { CollectionRouter } from "./CollectionRouter";
 import { ProfileRouter } from "./ProfileRouter";
 import { RequestsRouter } from "./RequestsRouter";
+import { HistoryRouter } from "./HistoryRouter";
 
 export const AppRouter = () => {
   const { isLogged } = useContext(AuthContext)
@@ -15,6 +16,7 @@ export const AppRouter = () => {
         <Route element={<PrivateRoute isAuthenticated={isLogged} />}>
           <Route path="/trades/*" element={<TradesRouter />} />
           <Route path="/profile/" element={<ProfileRouter />} />
+          <Route path="/history/*" element={<HistoryRouter />} />
           <Route path="/collection/*" element={<CollectionRouter />} />
           <Route path="/requests/*" element={<RequestsRouter />} />
         </Route>
