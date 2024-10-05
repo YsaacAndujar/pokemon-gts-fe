@@ -1,10 +1,10 @@
 import { LoadingContext } from "context/loading";
-import { getTradeDetails, makeRequest, patchTrade } from "helpers/trades";
+import { getTradeDetails, makeRequest } from "helpers/trades";
 import { Trade } from "interfaces/pokemon";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { showModal } from "utils/modal";
 import Swal from "sweetalert2";
+import { showModal } from "utils/modal";
 
 export const useGlobalTradeDetails = (id: number | string) => {
     const navigate = useNavigate();
